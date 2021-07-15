@@ -9,6 +9,7 @@ import NewAccount from "./components/newAccount";
 import ViewAllItemsOfCategory from './components/viewAllItemsOfCategory'
 import ShoppingCart from "./components/shoppingCart";
 import About from "./components/about";
+import MyOrders from "./components/myOrders";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/shopping cart">
             <ShoppingCart/>
+          </Route>
+          <Route path="/my orders">
+            <MyOrders/>
           </Route>
           <Route path="/about">
             <About />
