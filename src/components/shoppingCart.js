@@ -3,5 +3,6 @@ export default function ShoppingCart(){
     your products
     {/*ViewItemsInShoppingCart פה יש לטעון את הקומפוננטה  */}
     {/*Pay כפתור למעבר לתשלום שיעבור לקומפוננטה  */}
+    
     </>
 }
