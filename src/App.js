@@ -1,6 +1,6 @@
 import "./App.css";
-// import { Provider } from "react-redux";
-// import store from './redux/store'
+import { Provider } from "react-redux";
+import store from './redux/store'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MyNav from "./components/navbar";
 import Home from './components/home'
@@ -13,7 +13,7 @@ import MyOrders from "./components/myOrders";
 
 function App() {
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
     <div className="App">
       <BrowserRouter>
         <MyNav />
@@ -34,7 +34,7 @@ function App() {
             <MyOrders/>
           </Route>
           <Route path="/about">
-            <About />
+            <About/>
           </Route>
           <Route path="/">
             <Home />
@@ -42,7 +42,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-    // </Provider>
+   </Provider>
   );
 }
 

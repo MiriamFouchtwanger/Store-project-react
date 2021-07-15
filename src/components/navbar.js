@@ -3,7 +3,22 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-export default function MyNav(){
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import actions from '../redux/actions'
+
+const mapStateToProps=(state)=>{
+  return {categories: state.Categories.Categories}
+}
+const mapDispatchToProps=(dispatch)=>{
+  return {getAllCategories: ()=>dispatch(actions.getAllCategories())}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(MyNav)
+function MyNav(props){
+  const {categories,getAllCategories}=props
+  useEffect(()=>{
+    getAllCategories()
+  },[])
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -26,9 +41,12 @@ export default function MyNav(){
             </svg>
           </Nav.Link>
           <Nav.Link href="/about">about us</Nav.Link>
+          {categories.map(c=>{
+             return <Nav.Link className="justify-content-end" href={`/items/${c._id}`}>{c.nameCategory}</Nav.Link>
+          })}
           {/* לעבור על רשימת הקטגוריות מהשרת 
-          <Nav.Link href="/items/${idCategory}">שם קטגוריה</Nav.Link>*/}
-          
+          <Nav.Link href=`/items/${idCategory}`>שם קטגוריה</Nav.Link>*/}
+          {/* בלחיצה על קטגוריה יש לטעון את הרשימה מהשרת */}
         </Nav>
       </Navbar>
     </>
